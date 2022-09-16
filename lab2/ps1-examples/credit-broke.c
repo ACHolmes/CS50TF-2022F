@@ -6,6 +6,7 @@
 // All American Express numbers start with 34 or 37
 // How does your program handle this input?
 // 3400000000000620
+// Compare this to the other version of credit
 
 int sum_of_digits(int n)
 {

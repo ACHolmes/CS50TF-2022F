@@ -2,8 +2,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#define NUMPROMPTS 8;
-
 string prompts[8] = {"Favourite music genre, artist and song: ",
                      "Give us a fact you find interesting: ",
                      "Cats or dogs? Morning or evening?  ",
