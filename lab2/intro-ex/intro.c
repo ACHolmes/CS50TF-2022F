@@ -9,7 +9,8 @@ string prompts[8] = {"Favourite music genre, artist and song: ",
                      "Where are you from: ",
                      "Favourite place you've visited: ",
                      "Place you most want to visit: ",
-                     "Favourite place on campus: "};
+                     "Favourite place on campus: "
+                    };
 
 
 // Group 1

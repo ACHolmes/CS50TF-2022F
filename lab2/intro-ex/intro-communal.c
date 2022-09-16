@@ -6,7 +6,8 @@ void print_name(string name);
 
 string DEFAULT = "\033[0m"; // default colour
 
-string colors[4] = {
+string colors[4] =
+{
     "\033[0;32m", // Green
     "\033[0;31m", // Red
     "\033[0;33m", // Yellow
@@ -46,6 +47,6 @@ int main(int argc, string argv[])
 
 void print_name(string name)
 {
-    printf("%s%s%s", colors[rand()%4], name, DEFAULT);
+    printf("%s%s%s", colors[rand() % 4], name, DEFAULT);
 }
 
