@@ -34,11 +34,11 @@ int main(void)
     while(is_word);
 
     // check to make sure card is not too long or short
-    // if (cc_len < MIN_LENGTH || cc_len > MAX_LENGTH || cc_len == INVALID_LENGTH)
-    // {
-    //     printf("INVALID\n");
-    //     return 0;
-    // }
+    if (cc_len < MIN_LENGTH || cc_len > MAX_LENGTH || cc_len == INVALID_LENGTH)
+    {
+        printf("INVALID\n");
+        return 0;
+    }
 
     // check to make sure every digit is valid
     // variable to hold the checksum
@@ -63,12 +63,16 @@ int main(void)
         }
     }
 
-    printf("%i, %i\n", checksum, cc_len);
     // check to make sure checksum is valid
     if ((checksum % 10) != 0)
     {
         printf("INVALID\n");
     }
+
+    // NOTE: We can check the checksum separately - we require a valid checksum for all card types
+    // We cannot check the length and the first one/two digits separately - as this leads to problems
+    // Where we have a valid length and valid leading digits, but not the length that correspond
+    // to the corresponding digits
 
     // perform VISA checks (starts with 4, is either 13 or 16 digits)
     else if (cc_num[0] == '4' && (cc_len == MIN_LENGTH || cc_len == MAX_LENGTH))
