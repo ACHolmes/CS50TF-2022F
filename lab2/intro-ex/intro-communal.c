@@ -4,6 +4,7 @@
 
 void print_name(string name);
 
+// C formatting stuff to get colours!
 string DEFAULT = "\033[0m"; // default colour
 
 string colors[4] =
@@ -47,6 +48,8 @@ int main(int argc, string argv[])
 
 void print_name(string name)
 {
+    // Printing each name in one of four colours selected randomly.
+    // Again notice how we use % to make sure this operation is safe
     printf("%s%s%s", colors[rand() % 4], name, DEFAULT);
 }
 

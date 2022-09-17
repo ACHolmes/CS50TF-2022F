@@ -13,7 +13,10 @@ string prompts[8] = {"Favourite music genre, artist and song: ",
                     };
 
 
-// Group 1
+// First mistake: we are using argc and argv[] in our code, thus we can't have int main(void),
+// or even worse int main() (which works in C++)
+// correct code is:
+// int main(int argc, string argv[])
 int main()
 {
     if (argc != 2)
@@ -21,7 +24,10 @@ int main()
         printf("Usage: ./intro numPeople\n");
         return 1;
     }
-    // Group 2 (Note: a function from CS50 manual may be useful to fix one of the issues here)
+    // Second mistake, we can't assign argv[1] to an integer variable.
+    // Note argv is declared as an array of strings. Thus to convert to an integer
+    // we use the atoi function from stdlib.h
+    // int numPeople = atoi(argv[1])
     int numPeople = argv[1];
     string names[numPeople];
     string promptsUsed[numPeople];
@@ -29,8 +35,15 @@ int main()
     for (int i = 0; i <= numPeople; i++)
     {
         names[i] = get_string("What's your name? ");
-        // Group 3
+        // We have dangerous behaviour here: what if numPeople > 8, the number of prompts?
+        // then prompts[i] might be invalid, since i can be at most 7 to index into the prompts array
+        // to fix this, we use the % operator to ensure we never access memory we shouldn't
+        // promptsUsed[i] = prompts[i % 8]
+        // DESIGN POINT: This could be improved even more. 8 here is a 'magic number', when in reality it's a contstant
+        // that we should be treating more carefully. What if I added a prompt? I'd have to change 8 everywhere in my code
+        // best to define a constant variable to avoid these issues, potentitally using #define
         promptsUsed[i] = prompts[i];
+        // Same issue as above ^, use prompts[i % 8]
         info[i] = get_string("%s", prompts[i]);
     }
     printf("\n");
