@@ -12,6 +12,9 @@ int main(void)
 int factorial(int n)
 {
     // Implement a recursive function that returns n!
+    // 1! = 1
+    // 2! = 2 * 1 = 2
+    // 3! = 3 * 2 * 1 = 6
     return 1;
 }
 
