@@ -9,7 +9,8 @@ int main(void)
     for (int i = 0; i < LENGTH; i++)
     {
         int min = i;
-        for (int j = i; j < LENGTH; j++)
+        // Find the minimum within the unsorted portion (important to start with j = i or j = i + 1)
+        for (int j = i + 1; j < LENGTH; j++)
         {
             if (numbers[j] < numbers[min])
             {
