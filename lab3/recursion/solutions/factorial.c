@@ -9,13 +9,14 @@ int main(void)
     printf("Iterative method, 5! = %i\n", factorial_iter(5));
 }
 
-int factorial(int n)\
+int factorial(int n)
 {
     // Implement a recursive function that returns n!
-    // 1! = 1
-    // 2! = 2 * 1 = 2
-    // 3! = 3 * 2 * 1 = 6
-    return 1;
+    if (n < 1)
+    {
+        return 1;
+    }
+    return n * factorial(n - 1);
 }
 
 int factorial_iter(int n)
