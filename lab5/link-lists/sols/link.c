@@ -16,46 +16,53 @@ void insert_sorted(node** list, int num);
 
 int main(void)
 {
-    // TODO 1: Create a linked list with at least two nodes containing two ints
+    // TODO 1: Create a linked list with at least two nodes containing words of your choosing
     node* n1 = malloc(sizeof(node));
     node* n2 = malloc(sizeof(node));
-    if(!(n1 && n2))
+    if (!(n1 && n2))
     {
+        printf("Malloc error\n");
         return 1;
     }
-    n1->num = 8;
-    n2->num = 5;
+    n1->num = 1;
+    n2->num = 3;
     n1->next = n2;
-    // TODO 3: Pass your linked list into your free function to free it
-    
-    free_list(n1);
 
-    // TODO 4: Run valgrind to check for memory errors
+    // TODO 3: Pass your linked list into your free function to free it
+    free_list(n1);
     
+    // TODO 4: Run valgrind to check for memory errors
+    // Done :)
+
     // TODO 5: We will talk through how insert_sorted works
     node* list = malloc(sizeof(node));
     list->num = 0;
     for (int i = 0; i < 10; i++)
     {
-        insert_sorted(&list, rand() % 100);
+        insert_sorted(&list, rand() % 10);
     }
     printf("Sorted list of 10 random numbers: \n");
 
     // TODO 6: Print the nodes using a for loop
+    for (node* cursor = list; cursor != NULL; cursor = cursor->next)
+    {
+        printf("%i ", cursor->num);
+    }
+    printf("\n");
 
     // TODO 7: free this list
-
+    free_list(list);
 }
 
 void free_list(node* n)
 {
     // TODO 2: Write free_list, which should free every node in your linked list
-    if (n == NULL)
+    while (n)
     {
-        return;
+        node* prev = n;
+        n = n->next;
+        free(prev);
     }
-    free_list(n->next);
-    free(n);
     return;
 }
 
@@ -83,6 +90,12 @@ void insert_sorted(node** list, int num)
 
 void free_list_alt(node* n)
 {
-    // TODO 8 (bonus): If you wrote free_list recursively, write it iteratively, and vice versa!
+    // TODO 7 (bonus): If you wrote free_list recursively, write it iteratively, and vice versa!
+    if (n == NULL)
+    {
+        return;
+    }
+    free_list_alt(n->next);
+    free(n);
     return;
 }
