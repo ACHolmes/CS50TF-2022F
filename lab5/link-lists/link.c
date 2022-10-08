@@ -17,18 +17,8 @@ void insert_sorted(node** list, int num);
 int main(void)
 {
     // TODO 1: Create a linked list with at least two nodes containing two ints
-    node* n1 = malloc(sizeof(node));
-    node* n2 = malloc(sizeof(node));
-    if(!(n1 && n2))
-    {
-        return 1;
-    }
-    n1->num = 8;
-    n2->num = 5;
-    n1->next = n2;
+
     // TODO 3: Pass your linked list into your free function to free it
-    
-    free_list(n1);
 
     // TODO 4: Run valgrind to check for memory errors
     
@@ -50,12 +40,6 @@ int main(void)
 void free_list(node* n)
 {
     // TODO 2: Write free_list, which should free every node in your linked list
-    if (n == NULL)
-    {
-        return;
-    }
-    free_list(n->next);
-    free(n);
     return;
 }
 
