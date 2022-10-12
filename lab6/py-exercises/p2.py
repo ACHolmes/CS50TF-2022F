@@ -4,6 +4,7 @@ Topic 2: Loops & range function
 
 print(" === Topic 2: range & loops! === \n")
 
+print(" -- Part 1: Simple loops -- ")
 # To write a for loop, we use the following syntax:
 for i in range(3):
     print(f"Iteration {i}")
@@ -34,20 +35,20 @@ print(list(range1))
 '''
 
 # Returning to our previous loop:
-for i in range(3):
+for i in range(3, 6):
     print(f"Iteration {i}")
 
 # we see this 'for' loop sets i to each value in the list at each iteration. This means we can shorten
 # some things we would do in C. For example, let's imagine printing a list of names:
-print("Printing lists is easy in Python!")
-print("--- FOR LOOP VERSION ---")
+print("\n -- Part 2: printing lists is easy in Python! -- ")
+print("  - FOR LOOP VERSION -  ")
 names = ["Aurora", "Cristopher", "Meghan"]
 for name in names:
     print(name)
 
 
 # An example for a while loop:
-print("--- WHILE LOOP VERSION ---")
+print("  - WHILE LOOP VERSION -  ")
 i = 0
 while i < len(names):
     print(names[i])

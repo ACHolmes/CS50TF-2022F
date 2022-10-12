@@ -9,15 +9,17 @@ print(" === Topic 8: Files! === \n")
 # We generally open files in Python as so:
 with open("text.txt") as file:
     # Copy everything from the file into a Python string
+    print("Reading a whole file in as one string: ")
     text = file.read()
-    print(text)
+    print(text, end="\n\n")
 
 # What happens if you change the above to text2.txt?
 # What if we wanted each line separately?
 
 with open("text2.txt") as file:
+    print("Splitting up lines by using .readlines(): ")
     lines = file.readlines()
-    print(lines)
+    print(lines, end="\n\n")
 
 # How about if we wanted to write our own file?
 # This time we need to explicitly provide "w" to write, as it defaults to "r" for read

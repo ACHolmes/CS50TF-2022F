@@ -14,7 +14,7 @@ in any language.
 Topic 1: Using print
 '''
 
-print("\n === Topic 1: print! === \n")
+print(" === Topic 1: print! === \n")
 
 # To print, we can just use the print function as such:
 print("Hello world!")
