@@ -11,10 +11,10 @@ in any language.
 '''
 
 '''
-Part 1: Using print
+Topic 1: Using print
 '''
 
-print("\n === PART 1 === \n")
+print("\n === Topic 1: print! === \n")
 
 # To print, we can just use the print function as such:
 print("Hello world!")

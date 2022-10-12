@@ -1,8 +1,8 @@
 '''
-Part 2: Loops & range function
+Topic 2: Loops & range function
 '''
 
-print(" === PART 2 === \n")
+print(" === Topic 2: range & loops! === \n")
 
 # To write a for loop, we use the following syntax:
 for i in range(3):

@@ -1,12 +1,12 @@
 '''
-Part 5: Importing libraries
+Topic 5: Importing libraries
 
 Where in C we used include to use code from header files, in Python we use the import keyword.
 
 We can import an entire library or just a function from a library
 '''
 
-print(" === PART 5 === \n")
+print(" === Topic 5: libraries! === \n")
 
 # random library gives us access to random numbers :)
 import random
