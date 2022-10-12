@@ -1,5 +1,5 @@
 '''
-Part 7: main function and command line arguments
+Topic 7: main function and command line arguments
 
 It might have seemed weird to leave behind our trusty main function and 
 the (hopefully now less) cryptic int main(void). While Python can do without a main
@@ -17,6 +17,8 @@ def main():
     print("Hello, world!")
     if len(sys.argv) > 1:
         print(f"The first argument provided to the function was: {sys.argv[1]}")
+    # To return 0, we use sys.exit:
+    sys.exit(0)
 
 print("Where should this appear?")
 
@@ -26,4 +28,4 @@ print("Where should this appear?")
 if __name__ == "__main__":
     main()
 
-print("How about this?")
+print("Did you find this? How come it never prints?")

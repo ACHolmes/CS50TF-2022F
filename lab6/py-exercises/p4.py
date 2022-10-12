@@ -35,3 +35,6 @@ print(f"Some weird slice: {example[8:3:-2]}")
 # There are a whole bunch of other string methods you could use, for example:
 confused = example.replace("!", "?")
 print(f"A confused slice: {confused}")
+
+split = example.split()
+print(f"Splitting by spaces: {split}")
