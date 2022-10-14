@@ -6,7 +6,7 @@ Multi-line comments can be done using the triple apostrophes like this!
 Single-line comments require a #
 
 Note in codespaces (and VSCode), you can use the shortcut
-CTRL + /  (Or CMD if on Mac I believe) to write a single line comment
+CTRL + /  (Or CMD + / if on Mac I believe) to write a single line comment
 in any language.
 '''
 
