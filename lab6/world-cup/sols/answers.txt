@@ -1,0 +1,23 @@
+Times:
+
+10 simulations: 0m0.039s
+100 simulations: 0m0.048s
+1000 simulations: 0m0.052s
+10000 simulations: 0m0.107s
+100000 simulations: 0m0.822s
+1000000 simulations: 0m7.286s
+
+Questions:
+
+Which predictions, if any, proved incorrect as you increased the number of simulations?:
+
+With a small number of simulations (10), the predictions varied widely. With a large number of predictions (up to 10000),
+the predictions solidified with Belgium and Brazil as favorites. Other countries like Russia also appeared in the rankings
+as the number of simulations increased, likely because Russia won some small number of the many simulated tournaments.
+
+
+Suppose you're charged a fee for each second of compute time your program uses.
+After how many simulations would you call the predictions "good enough"?:
+
+It seems like the predictions stabilized after about 10000 simulations. Since the time to run the program increases about 10x
+afterwards, this might be the point at which we would call the predictions good enough.
