@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+        <link href="styles.css" rel="stylesheet">
+        <title>Trivia!</title>
+
+        <script>
+
+            // TODO: Add code to check answers to questions
+
+        </script>
+
+    </head>
+    <body>
+
+        <div class="jumbotron">
+            <h1>Trivia!</h1>
+        </div>
+
+        <div class="container">
+
+            <div class="section">
+                <h2>Part 1: Multiple Choice </h2>
+                <hr>
+                <h3>What is Andrew's favourite Pokemon? </h3> 
+                <!-- TODO: Add multiple choice question here -->
+                <button class="incorrect">Pikachu</button>
+                <button class="correct">Latios</button>
+                <button class="correct">Oshawott</button>
+                <button class="incorrect">Dialga</button>
+                <button class="incorrect">Mudkip</button>
+                <div class="feedback"></div>
+            </div>
+
+            <div class="section">
+                <h2>Part 2: Free Response</h2>
+                <hr>
+
+                <!-- TODO: Add free response question here -->
+                <h3>What is the name of the creature snuck into Andrew's slides this week?</h3>
+                <input type="text" id="q2-answer">
+                <button id="q2-submit">Submit!</button>
+                <div class="feedback"></div>
+            </div>
+        </div>
+    </body>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            let corrects = document.querySelectorAll('.correct');
+            let incorrects = document.querySelectorAll('.incorrect');
+            corrects.forEach(correct => {
+                correct.addEventListener('click', function(){
+                    correct.style.backgroundColor = 'Green';
+                    correct.parentElement.querySelector('.feedback').innerHTML = 'Correct!';
+                })
+            })
+            incorrects.forEach(incorrect => {
+                incorrect.addEventListener('click', function(){
+                    incorrect.style.backgroundColor = 'Red';
+                    incorrect.parentElement.querySelector('.feedback').innerHTML = 'Incorrect D:';
+                })
+            })
+            let submit = document.querySelector('#q2-submit');
+            submit.addEventListener('click', function(){
+                let input = document.querySelector('#q2-answer');
+                if (input.value.toLowerCase() == "pangolin")
+                {
+                    input.style.backgroundColor = 'green';
+                    input.parentElement.querySelector('.feedback').innerHTML = 'Correct!';
+                }
+                else
+                {
+                    input.style.backgroundColor = 'red';
+                    input.parentElement.querySelector('.feedback').innerHTML = 'Incorrect D:';
+                }
+
+            })
+
+
+
+        })
+    </script>
+</html>
