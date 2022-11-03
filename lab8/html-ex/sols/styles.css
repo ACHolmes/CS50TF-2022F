@@ -1,0 +1,19 @@
+body {
+    background-color: #ccc;
+}
+
+
+.nav-item
+{
+    display: inline;
+    padding-right: 20px;
+    box-sizing: border-box;
+    border: 1px solid BLACK;
+}
+
+.duck-container
+{
+    position: absolute;
+    top: 0;
+    right: 0;
+}
