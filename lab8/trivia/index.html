@@ -9,6 +9,42 @@
         <script>
 
             // TODO: Add code to check answers to questions
+            document.addEventListener('DOMContentLoaded', function() {
+                let correct = document.querySelector('#correct');
+                let incorrects = document.querySelectorAll(".incorrect");
+                let feedback = document.querySelector("#q1-feedback");
+                correct.addEventListener("click", 
+                                         function(){
+                                            correct.style.backgroundColor = "green";
+                                            feedback.innerHTML = "Correct!";
+                                        }
+                    );
+                
+                for (let i = 0; i < incorrects.length; i++)
+                {
+                    incorrects[i].addEventListener('click', function(){
+                        incorrects[i].style.backgroundColor = "red";
+                        feedback.innerHTML = "Incorrect.";
+                    })
+                }    
+
+                let submit = document.querySelector("#q2-submit");
+                let input = document.querySelector("input");
+                let secondFeedback = document.querySelector("#q2-feedback");
+                submit.addEventListener('click', function(){   
+                    if(input.value == "Saudi Arabia")
+                    {
+                        input.style.backgroundColor = "green";
+                        secondFeedback.innerHTML = "Correct!";
+                    }
+                    else
+                    {
+                        input.style.backgroundColor = "red";
+                        secondFeedback.innerHTML = "Incorrect.";
+                    }
+                })
+
+            })
 
         </script>
 
@@ -26,6 +62,13 @@
                 <hr>
 
                 <!-- TODO: Add multiple choice question here -->
+                <h3>What's the capital of California?</h3>
+
+                <button class="incorrect">San Francisco</button>
+                <button id="correct">Sacramento</button>
+                <button class="incorrect">Los Angeles</button>
+                <button class="incorrect">Cupertino</button>
+                <p id="q1-feedback">here</p>
 
             </div>
 
@@ -34,9 +77,10 @@
                 <hr>
 
                 <!-- TODO: Add free response question here -->
-
-            </div>
-
+                <h3>In what country is dabbing illegal?</h3>
+                <input>
+                <button id="q2-submit">Submit!</button>
+                <div id="q2-feedback"></div>
         </div>
     </body>
 </html>

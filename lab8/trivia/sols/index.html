@@ -7,8 +7,73 @@
         <title>Trivia!</title>
 
         <script>
+        // Add an Event Listener that waits to run everything inside this function
+        // until the rest of the page is loaded. This is necessary as the page is loaded 
+        // top to bottom - if we tried to run this now (e.g. the let corrects line)
+        // none of our HTML elements have been loaded yet, so we would hit errors.
+        document.addEventListener('DOMContentLoaded', function() {
+            // Now that the page is loaded, we get the correct and incorrect buttons
+            let correct = document.querySelector('#correct');
+            let incorrects = document.querySelectorAll('.incorrect');
+            // For the button that is correct, if it is clicked, we want to
+            // turn the background of that button green. We also want to provide the feedback
+            // To do that, I find the div which has the 'feedback' class. Since there are multiple
+            // elements with the 'feedback' class (I use another one for the second question),
+            // I do so by only running a query on the parent element of 'correct', this gives me
+            // the relevant 'feedback' div.
+            correct.addEventListener('click', function(){
+                correct.style.backgroundColor = 'Green';
+                correct.parentElement.querySelector('.feedback').innerHTML = 'Correct!';
+                // correct.parentElement.querySelector('.feedback') -> the feedback div within the parent div
+                // .innerHTML = 'Correct!'; -> set the text within that to 'Correct!'
+            })
+            
+            // We have multiple incorrect answers, so we need to
+            // loop and make sure each works correctly.
+            for(let i = 0; i < incorrects.length; i++)
+            {
+                // for each one, it waits until it is clicked.
+                // Once it is clicked, it turns its own background red, and the 
+                // relevant feedback div is filled with 'Incorrect.'
+                incorrects[i].addEventListener('click', function(){
+                    incorrects[i].style.backgroundColor = 'Red';
+                    incorrects[i].parentElement.querySelector('.feedback').innerHTML = 'Incorrect.';
+                })
+            }
 
-            // TODO: Add code to check answers to questions
+            // BONUS: Another implementation using JavaScript's forEach method
+            // incorrects.forEach(incorrect => {
+            //     incorrect.addEventListener('click', function(){
+            //         incorrect.style.backgroundColor = 'Red';
+            //         incorrect.parentElement.querySelector('.feedback').innerHTML = 'Incorrect.';
+            //     })
+            // })
+
+
+            // SECOND QUESTION
+
+            // We find the submit button for the second question
+            let submit = document.querySelector('#q2-submit');
+            // When it's clicked, we need to check the input
+            submit.addEventListener('click', function(){
+                // We find the input tag
+                let input = document.querySelector('#q2-answer');
+                // We extract the value (what is actually entered in the input)
+                // In my case, I also made it all lowercase to make the check case-insensitive
+                if (input.value.toLowerCase() == "pangolin")
+                {
+                    // If what they entered matched, set to green and give feedback!
+                    input.style.backgroundColor = 'green';
+                    input.parentElement.querySelector('.feedback').innerHTML = 'Correct!';
+                }
+                else
+                {
+                    // Else, set it to red and give the correct feedback!
+                    input.style.backgroundColor = 'red';
+                    input.parentElement.querySelector('.feedback').innerHTML = 'Incorrect.';
+                }
+            })
+        })
 
         </script>
 
@@ -24,11 +89,11 @@
             <div class="section">
                 <h2>Part 1: Multiple Choice </h2>
                 <hr>
-                <h3>What is Andrew's favourite Pokemon? </h3> 
                 <!-- TODO: Add multiple choice question here -->
+                <h3>What is Andrew's favourite Pokemon? </h3> 
                 <button class="incorrect">Pikachu</button>
-                <button class="correct">Latios</button>
-                <button class="correct">Oshawott</button>
+                <button id="correct">Oshawott</button>
+                <button class="incorrect">Latios</button>
                 <button class="incorrect">Dialga</button>
                 <button class="incorrect">Mudkip</button>
                 <div class="feedback"></div>
@@ -40,46 +105,11 @@
 
                 <!-- TODO: Add free response question here -->
                 <h3>What is the name of the creature snuck into Andrew's slides this week?</h3>
+                <!-- We have a text input and a button to submit it, along with the feedback div again -->
                 <input type="text" id="q2-answer">
                 <button id="q2-submit">Submit!</button>
                 <div class="feedback"></div>
             </div>
         </div>
     </body>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            let corrects = document.querySelectorAll('.correct');
-            let incorrects = document.querySelectorAll('.incorrect');
-            corrects.forEach(correct => {
-                correct.addEventListener('click', function(){
-                    correct.style.backgroundColor = 'Green';
-                    correct.parentElement.querySelector('.feedback').innerHTML = 'Correct!';
-                })
-            })
-            incorrects.forEach(incorrect => {
-                incorrect.addEventListener('click', function(){
-                    incorrect.style.backgroundColor = 'Red';
-                    incorrect.parentElement.querySelector('.feedback').innerHTML = 'Incorrect D:';
-                })
-            })
-            let submit = document.querySelector('#q2-submit');
-            submit.addEventListener('click', function(){
-                let input = document.querySelector('#q2-answer');
-                if (input.value.toLowerCase() == "pangolin")
-                {
-                    input.style.backgroundColor = 'green';
-                    input.parentElement.querySelector('.feedback').innerHTML = 'Correct!';
-                }
-                else
-                {
-                    input.style.backgroundColor = 'red';
-                    input.parentElement.querySelector('.feedback').innerHTML = 'Incorrect D:';
-                }
-
-            })
-
-
-
-        })
-    </script>
 </html>
