@@ -1,3 +1,0 @@
-pk_3ee0df1bf8814192b86287f9d25ea835
-
-export API_KEY=pk_3ee0df1bf8814192b86287f9d25ea835
